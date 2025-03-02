@@ -57,7 +57,8 @@ public class UsersController(IUserRepository userRepository,IMapper mapper, IPho
         var photo = new Photo 
         {
             Url = result.SecureUrl.AbsoluteUri,
-            PublicId = result.PublicId
+            PublicId = result.PublicId,
+            IsMain = user.Photos.Count == 0 ? true : false
         };
 
         user.Photos.Add(photo);

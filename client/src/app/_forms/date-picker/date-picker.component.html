@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+<div class="mb-3 form-floating">
+    <input 
+        [class.is-invalid]="control.touched && control.invalid"
+        class="form-control"
+        name="password"
+        [formControl]="control"
+        placeholder={{label()}}
+        bsDatepicker
+        [bsConfig]="bsConfig"
+        [maxDate]="maxDate()"
+    >
+    <label>{{label()}}</label>
+    <div *ngIf="control.hasError('required')" 
+    class="invalid-feedback text-start">Please enter a {{label()}}</div>
+</div>
+
