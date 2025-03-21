@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
-   imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive, TitleCasePipe],
+   imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
@@ -25,6 +25,7 @@ export class NavComponent {
         this.router.navigateByUrl('/members')
       },
       error: error => {
+        console.log('e');
         this.toaster.error(error.error)
       }
     })
