@@ -6,13 +6,16 @@ namespace API.DTOs;
 public class RegisterDto
 {
     [Required]
-    public string? Username {get; set;} = string.Empty;
+    public required string Username {get; set;} = string.Empty;
 
     [Required]
     public string? knownAs { get; set; }
 
     [Required]
     public string? dateOfBirth { get; set; }
+
+    [Required]
+    public string? Gender { get; set; }
 
     [Required]
     public string? City { get; set; }

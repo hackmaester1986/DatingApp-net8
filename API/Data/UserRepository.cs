@@ -6,11 +6,12 @@ using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data;
 
-public class UserRepository(DataContext context, IMapper mapper) : IUserRepository
+public class UserRepository(UserManager<AppUser> userManager,DataContext context, IMapper mapper) : IUserRepository
 {
     public async Task<IEnumerable<AppUser>> GetUsersAsync()
     {

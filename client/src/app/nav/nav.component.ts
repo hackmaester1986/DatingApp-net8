@@ -6,10 +6,11 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from '../home/home.component';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { HasRoleDirective } from '../_directives/has-role.directive';
 
 @Component({
   selector: 'app-nav',
-   imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive],
+   imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive,HasRoleDirective],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
@@ -18,14 +19,12 @@ export class NavComponent {
   accountService = inject(AccountService);
   private toaster = inject(ToastrService)
   model: any = {};
-
   login(){
     this.accountService.login(this.model).subscribe({
       next: _ => {
         this.router.navigateByUrl('/members')
       },
       error: error => {
-        console.log('e');
         this.toaster.error(error.error)
       }
     })
