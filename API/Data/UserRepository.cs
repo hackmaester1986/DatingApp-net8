@@ -29,11 +29,6 @@ public class UserRepository(UserManager<AppUser> userManager,DataContext context
         .Include(x => x.Photos).SingleOrDefaultAsync(x => x.UserName == username);
     }
 
-    public async Task<bool> SavelAllAsync()
-    {
-        return await context.SaveChangesAsync() > 0;
-    }
-
     public void Update(AppUser user)
     {
         context.Entry(user).State = EntityState.Modified;
